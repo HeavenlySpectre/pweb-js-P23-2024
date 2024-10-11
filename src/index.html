@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../img/image.png" alt="Brand Logo" id="brandLogo">
+            <h1 id="brandName">Beauty Bliss</h1> <!-- Nama brand -->
+        </div>
+        <nav>
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+            </select>
+            <select id="itemsPerPage">
+                <option value="10">10 per page</option>
+                <option value="20">20 per page</option>
+                <option value="30">30 per page</option>
+                <option value="all">Show All</option>
+            </select>
+            <div id="cartContainer">
+                <div id="cartIcon">🛒 <span id="cartCount">0</span></div>
+                <button id="checkoutBtn">Checkout</button>
+            </div>
+        </nav>
+    </header>    
+
+    <main>
+        <div id="productList"></div>
+        <div id="cart" class="hidden">
+            <h2>Shopping Cart</h2>
+            <div id="cartItems"></div>
+            <p>Total Items: <span id="totalItems">0</span></p>
+            <p>Total Price: $<span id="totalPrice">0</span></p>
+            <button id="checkoutBtn">Checkout</button>
+        </div>
+    </main>
+
+    <div id="error" class="hidden">
+        <p>An error occurred. Please try again later.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

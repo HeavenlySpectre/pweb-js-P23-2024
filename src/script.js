@@ -52,28 +52,40 @@ function updateCategoryFilter() {
 function displayProducts() {
     if (!productList) return;
 
+    // Filter produk berdasarkan kategori
     const filteredProducts = products.filter(product => 
         categoryFilter.value === '' || product.category === categoryFilter.value
     );
 
-    productList.innerHTML = '';
-    const productsToShow = itemsPerPage === 'all' 
-        ? filteredProducts 
-        : filteredProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
-
-    productsToShow.forEach(product => {
-        const productDiv = document.createElement('div');
-        productDiv.className = 'product';
-        productDiv.innerHTML = `
-            <img src="${product.thumbnail}" alt="${product.title}" class="product-image">
-            <h3>${product.title}</h3>
-            <p>$${product.price}</p>
-            <button onclick="addToCart(${product.id})">Add to Cart</button>
-        `;
-        productList.appendChild(productDiv);
+    // Tambahkan class 'hide' untuk memulai animasi keluar
+    const currentProducts = document.querySelectorAll('.product');
+    currentProducts.forEach(product => {
+        product.classList.add('hide');
     });
 
-    updatePagination(filteredProducts.length);
+    // Tunggu transisi selesai (0.5s dalam contoh di atas)
+    setTimeout(() => {
+        productList.innerHTML = '';
+
+        const productsToShow = itemsPerPage === 'all' 
+            ? filteredProducts 
+            : filteredProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+        // Tampilkan produk baru dengan smooth transition
+        productsToShow.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.className = 'product';
+            productDiv.innerHTML = `
+                <img src="${product.thumbnail}" alt="${product.title}" class="product-image">
+                <h3>${product.title}</h3>
+                <p>$${product.price}</p>
+                <button onclick="addToCart(${product.id})">Add to Cart</button>
+            `;
+            productList.appendChild(productDiv);
+        });
+
+        updatePagination(filteredProducts.length);
+    }, 500); // Waktu yang sama dengan durasi transisi CSS
 }
 
 function updatePagination(totalProducts) {

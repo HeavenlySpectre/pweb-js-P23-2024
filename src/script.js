@@ -288,6 +288,17 @@ function checkout() {
     }
 }
 
+function showError(message) {
+    const errorDiv = document.getElementById('error');
+    errorDiv.textContent = message;
+    errorDiv.classList.remove('hidden');
+}
+
+function hideError() {
+    const errorDiv = document.getElementById('error');
+    errorDiv.classList.add('hidden');
+}
+
 // Initialize
 fetchProducts();
 updateCart();

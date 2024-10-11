@@ -49,7 +49,10 @@ nav {
 }
 
 #cartContainer {
-    margin-left: 1rem; /* Jarak kecil antara cartContainer dan filter */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
 select, button {
@@ -95,9 +98,15 @@ select:hover, button:hover {
 }
 
 #cartIcon {
+    font-size: 2rem; /* Ukuran ikon keranjang */
     cursor: pointer;
-    font-size: 1.5rem;
-    color: #E8B1A1;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Menghapus background dan border */
+#cartIcon:hover {
+    transform: scale(1.1); /* Efek hover untuk memperbesar ikon */
 }
 
 #checkoutBtn {
@@ -115,7 +124,6 @@ select:hover, button:hover {
 #checkoutBtn:hover {
     background-color: #C7A222;
 }
-
 #pagination button {
     margin: 0 0.5rem;
     padding: 0.25rem 0.5rem;
@@ -123,6 +131,115 @@ select:hover, button:hover {
     border: 1px solid #E8B1A1;
     border-radius: 3px;
     cursor: pointer;
+}
+
+main {
+    padding: 2rem;
+    background-color: #FFF6F8; /* Warna latar belakang lembut */
+}
+
+#productList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.product {
+    border: 1px solid #E8B1A1;
+    padding: 1.5rem;
+    background-color: white;
+    text-align: center;
+    border-radius: 8px; /* Sudut lembut */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-10px); /* Efek melayang saat hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8E7B6D;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    color: #D4AF37; /* Warna emas untuk harga */
+}
+
+#cart {
+    position: absolute;
+    right: 0;
+    top: 100%; /* Tempatkan di bawah ikon keranjang */
+    width: 300px; /* Sesuaikan lebar */
+    background-color: white; /* Warna background */
+    border: 1px solid #ccc; /* Tambahkan border */
+    border-radius: 4px; /* Tambahkan sudut melengkung */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+    padding: 1rem;
+    display: none; /* Sembunyikan cart secara default */
+    z-index: 1001; /* Pastikan cart berada di atas konten lainnya */
+}
+/* Tampilkan cart saat di hover pada cartContainer */
+/* Tampilkan cart saat hover pada cartContainer */
+#cartContainer:hover #cart {
+    display: block; /* Tampilkan cart saat hover */
+}
+
+#cart h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+#cartItems {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 300px;
+    padding: 10px;
+    background-color: #FFF6F8;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E8B1A1;
+}
+
+.cart-item-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    text-align: left;
+}
+
+#cart p {
+    padding: 0.5rem 1rem;
+    background-color: #FAD4C0;
+    border-top: 1px solid #E8B1A1;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 #error {

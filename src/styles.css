@@ -11,7 +11,7 @@ header {
     justify-content: space-between; /* Jarak antara logo dan nav */
     align-items: center; /* Menjaga elemen tetap sejajar secara vertikal */
     background-color: #f0f0f0; /* Latar belakang header */
-    padding: 1rem;
+    padding: 16px 25px;
 }
 
 #brandLogo {
@@ -50,7 +50,7 @@ nav {
 
 #cartContainer {
     position: fixed;
-    top: 20px;
+    top: 90px;
     right: 20px;
     z-index: 1000;
 }

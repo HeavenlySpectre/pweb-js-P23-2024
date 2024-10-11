@@ -107,6 +107,9 @@ select:hover, button:hover {
     font-size: 2rem; /* Ukuran ikon keranjang */
     cursor: pointer;
     padding: 10px;
+    background-color: white;
+    border: solid 1px #ccc;
+    border-radius: 16px;
     transition: transform 0.3s ease;
 }
 
@@ -190,7 +193,7 @@ main {
     position: absolute;
     right: 0;
     top: 100%; /* Tempatkan di bawah ikon keranjang */
-    width: 300px; /* Sesuaikan lebar */
+    width: auto-fit; /* Sesuaikan lebar */
     background-color: white; /* Warna background */
     border: 1px solid #ccc; /* Tambahkan border */
     border-radius: 4px; /* Tambahkan sudut melengkung */
@@ -217,6 +220,7 @@ main {
     max-height: 300px;
     padding: 10px;
     background-color: #FFF6F8;
+    overflow-x: hidden;
 }
 
 .cart-item {
@@ -241,11 +245,24 @@ main {
 }
 
 #cart p {
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
     background-color: #FAD4C0;
     border-top: 1px solid #E8B1A1;
     font-size: 1rem;
     font-weight: bold;
+}
+
+.cart-item-actions {
+    cursor: pointer;
+    color: #D4AF37;
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.cart-item-actions > button {
+    margin: 4px;
 }
 
 #error {

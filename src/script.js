@@ -31,8 +31,7 @@ async function fetchProducts() {
         updateCategoryFilter();
         displayProducts();
     } catch (error) {
-        console.error('Error fetching products:', error);
-        if (errorDiv) errorDiv.classList.remove('hidden');
+        showError('Terjadi kesalahan. Silakan coba lagi.');
     }
 }
 
@@ -85,7 +84,7 @@ function displayProducts() {
         });
 
         updatePagination(filteredProducts.length);
-    }, 500); // Waktu yang sama dengan durasi transisi CSS
+    }, 500); 
 }
 
 function updatePagination(totalProducts) {
@@ -290,7 +289,7 @@ function checkout() {
 
 function showError(message) {
     const errorDiv = document.getElementById('error');
-    errorDiv.textContent = message;
+    errorDiv.textContent = message; 
     errorDiv.classList.remove('hidden');
 }
 
